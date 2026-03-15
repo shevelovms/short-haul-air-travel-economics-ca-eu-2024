@@ -213,3 +213,6 @@ data_processed/*
 # Keep folder structure
 !data_raw/README.md
 !data_processed/README.md
+
+# .DS_Store
+.DS_Store

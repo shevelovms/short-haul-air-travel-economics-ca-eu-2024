@@ -1,7 +1,9 @@
-Raw, immutable source data.
+Raw source datasets used for this project.
 
-This directory contains original data pulled from external sources
-(APIs, databases, downloads). Files in this directory are intentionally
-gitignored.
+These files are not included in the repository due to size and licensing constraints.
 
-Do not modify raw data in-place.
+Data sources:
+- Airline route-level data extracted into PostgreSQL
+
+No transformations are applied in this directory.
+All cleaning and aggregation occurs in SQL scripts.

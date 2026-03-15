@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS dim_airport (
   region TEXT NOT NULL,
   latitude DOUBLE PRECISION,
   longitude DOUBLE PRECISION,
-  CONSTRAINT chk_region CHECK (region IN ('CA', 'EU'))
+  CONSTRAINT chk_region CHECK (region IN ('CA', 'US', 'EU'))
 );
 
 CREATE TABLE IF NOT EXISTS dim_route (
@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS fact_route_month (
   route_id TEXT NOT NULL,
   carrier TEXT NOT NULL,
   flights_count INTEGER NOT NULL,
-  CONSTRAINT chk_frm_region CHECK (region IN ('CA', 'EU')),
+  CONSTRAINT chk_frm_region CHECK (region IN ('CA', 'US', 'EU')),
   CONSTRAINT chk_frm_month CHECK (month BETWEEN 1 AND 12),
   CONSTRAINT pk_fact_route_month PRIMARY KEY (region, year, month, route_id, carrier)
 );
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS fact_price_period (
   period_num SMALLINT NOT NULL,
   metric_name TEXT NOT NULL,
   metric_value DOUBLE PRECISION,
-  CONSTRAINT chk_fpp_region CHECK (region IN ('CA', 'EU')),
+  CONSTRAINT chk_fpp_region CHECK (region IN ('CA', 'US', 'EU')),
   CONSTRAINT chk_period_type CHECK (period_type IN ('monthly', 'quarterly'))
 );
 
